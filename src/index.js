@@ -8,8 +8,16 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
+
+// main.js
+import {  MyModule } from './myModule.js';
+
+const m = new MyModule();
+console.log(m.myString);
+
 export default {
 	async fetch(request, env, ctx) {
-		return new Response('Hello World!');
+		
+		return new Response('Hello World!'+m.myString+""+m.sayHello());
 	},
 };
